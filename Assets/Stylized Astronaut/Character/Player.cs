@@ -49,6 +49,9 @@ public class Player : MonoBehaviour {
                 {
                   Debug.Log("Fire1 isGrounded");
                   moveDirection.y = 10f;
+                  leftJet.GetComponent<ParticleSystem>().Play();
+                  rightJet.GetComponent<ParticleSystem>().Play();
+                    StartCoroutine(StopJets());
                 }
 			}
 
@@ -57,4 +60,11 @@ public class Player : MonoBehaviour {
 			controller.Move(moveDirection * Time.deltaTime);
 			moveDirection.y -= gravity * 0.5f * Time.deltaTime;
 		}
+
+    IEnumerator StopJets()
+    {
+        yield return new WaitForSeconds(1.0f);
+        leftJet.GetComponent<ParticleSystem>().Stop();
+        rightJet.GetComponent<ParticleSystem>().Stop();
+    }
 }
