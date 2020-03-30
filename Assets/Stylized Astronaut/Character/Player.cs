@@ -39,12 +39,12 @@ public class Player : MonoBehaviour {
                 
 			}
 
-           
 
-           
+           Debug.Log(controller.isGrounded ? "GROUNDED" : "NOT GROUNDED");
 
             if (controller.isGrounded){
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+                //moveDirection.y = 0.0f;
                 if (Input.GetButtonDown("Fire1"))
                 {
                   Debug.Log("Fire1 isGrounded");
@@ -57,9 +57,25 @@ public class Player : MonoBehaviour {
 
 			float turn = Input.GetAxis("Horizontal");
 			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-			controller.Move(moveDirection * Time.deltaTime);
-			moveDirection.y -= gravity * 0.5f * Time.deltaTime;
+        moveDirection.y -= gravity * 0.5f * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+			//dmoveDirection.y -= gravity * 0.5f * Time.deltaTime;
 		}
+
+    private void FixedUpdate()
+    {
+        /*if (!controller.isGrounded)
+        {
+            moveDirection.y -= gravity * 0.5f * Time.deltaTime;
+        } else
+        {
+            moveDirection.y = 0.0f;
+        }*/
+        /*float turn = Input.GetAxis("Horizontal");
+        transform.Rotate(0, turn * turnSpeed * Time.fixedDeltaTime, 0);
+        controller.Move(moveDirection * Time.fixedDeltaTime);
+        moveDirection.y -= gravity * 0.5f * Time.fixedDeltaTime;*/
+    }
 
     IEnumerator StopJets()
     {
