@@ -3524,7 +3524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 4626026105341063}
   camTransform: {fileID: 4626026105341063}
-  distance: 5
+  distance: 10
 --- !u!114 &114551384889558389
 MonoBehaviour:
   m_ObjectHideFlags: 0
