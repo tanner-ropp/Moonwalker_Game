@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
+        Cursor.visible = false;
         
     }
 
@@ -43,22 +44,34 @@ public class Player : MonoBehaviour {
            Debug.Log(controller.isGrounded ? "GROUNDED" : "NOT GROUNDED");
 
             if (controller.isGrounded){
+
+                anim.SetInteger("JumpPar", 0);
 				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
                 //moveDirection.y = 0.0f;
                 if (Input.GetButtonDown("Fire1"))
                 {
+                anim.SetInteger("JumpPar", 1);
                   Debug.Log("Fire1 isGrounded");
                   moveDirection.y = 10f;
                   leftJet.GetComponent<ParticleSystem>().Play();
                   rightJet.GetComponent<ParticleSystem>().Play();
-                    StartCoroutine(StopJets());
+                  StartCoroutine(StopJets());
                 }
 			}
 
-			float turn = Input.GetAxis("Horizontal");
-			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-        moveDirection.y -= gravity * 0.5f * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+            //float turn = Input.GetAxis("Horizontal");
+            float turn = 0.0f;
+        //transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, transform.eulerAngles.z);
+
+            if (turn > 0.01f || turn < -0.01f)
+            {
+                //moveDirection = transform.forward * speed;
+                anim.SetInteger("AnimationPar", 1);
+            }
+
+            moveDirection.y -= gravity * 0.5f * Time.deltaTime;
+            controller.Move(moveDirection * Time.deltaTime);
 			//dmoveDirection.y -= gravity * 0.5f * Time.deltaTime;
 		}
 
