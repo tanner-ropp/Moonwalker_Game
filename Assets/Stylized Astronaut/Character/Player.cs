@@ -59,10 +59,13 @@ public class Player : MonoBehaviour {
                 }
 			}
 
-            //float turn = Input.GetAxis("Horizontal");
-            float turn = 0.0f;
+            float turn = Input.GetAxis("Horizontal");
+        //float turn = 0.0f;
         //transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, transform.eulerAngles.z);
+        transform.Rotate(0, turn * 90, 0);
+
+            //if (!controller.isGrounded || )
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, transform.eulerAngles.z);
 
             if (turn > 0.01f || turn < -0.01f)
             {
@@ -74,21 +77,6 @@ public class Player : MonoBehaviour {
             controller.Move(moveDirection * Time.deltaTime);
 			//dmoveDirection.y -= gravity * 0.5f * Time.deltaTime;
 		}
-
-    private void FixedUpdate()
-    {
-        /*if (!controller.isGrounded)
-        {
-            moveDirection.y -= gravity * 0.5f * Time.deltaTime;
-        } else
-        {
-            moveDirection.y = 0.0f;
-        }*/
-        /*float turn = Input.GetAxis("Horizontal");
-        transform.Rotate(0, turn * turnSpeed * Time.fixedDeltaTime, 0);
-        controller.Move(moveDirection * Time.fixedDeltaTime);
-        moveDirection.y -= gravity * 0.5f * Time.fixedDeltaTime;*/
-    }
 
     IEnumerator StopJets()
     {
