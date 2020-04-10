@@ -6,6 +6,9 @@ public class Player : MonoBehaviour {
 		private Animator anim;
 		private CharacterController controller;
 
+        public AudioSource myAudio;
+        public AudioClip[] jumps;
+
 		public float speed = 600.0f;
         public float airSpeed = 1.0f;
 		public float turnSpeed = 400.0f;
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour {
                 //moveDirection.y = 0.0f;
                 if (Input.GetButtonDown("Fire1"))
                 {
+                myAudio.PlayOneShot(jumps[Random.Range(0,3)]);
                 anim.SetInteger("JumpPar", 1);
                   Debug.Log("Fire1 isGrounded");
                   moveDirection.y = 10f;

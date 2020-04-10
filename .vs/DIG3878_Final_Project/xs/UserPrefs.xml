@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{A7A03067-FCEF-8C33-9ECF-FEB8215501E6}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Stylized Astronaut/Character/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/LoadSceneOnClick.cs">
     <Files>
-      <File FileName="Assets/Stylized Astronaut/Character/Player.cs" Line="63" Column="9" />
+      <File FileName="Assets/Stylized Astronaut/Character/Player.cs" Line="44" Column="1" />
       <File FileName="Assets/Stylized Astronaut/Character/ThirdPersonCamera.cs" />
+      <File FileName="Assets/Scenes/LoadSceneOnClick.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="08c87beb-8a9a-4315-a85f-bc3c93bbafc9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="880e4d8c-f767-4993-90dc-8af0583b5391" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
