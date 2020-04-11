@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/9fc0d4010bbf28b4594072e72b8655ab
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/GameScenes/SampleScene.unity
+    path: Assets/palbardiaz/Base Level/StartScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/GameScenes/LevelOne.unity
     guid: 4b0e8803edda64faeb0d03cd0f4c7d25
+  - enabled: 1
+    path: Assets/palbardiaz/Base Level/SampleLevel.unity
+    guid: ef231f8ee06ea4237bfdc4d31ed4eac3
+  - enabled: 1
+    path: Assets/palbardiaz/Base Level/LevelFailed.unity
+    guid: ea9fb2f8de96f834b9f4909ea74eeddf
+  - enabled: 1
+    path: Assets/palbardiaz/Base Level/LevelComplete.unity
+    guid: 65c732e09b8b94fb496c9c86c6b60323
   m_configObjects: {}
