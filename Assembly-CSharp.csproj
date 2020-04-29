@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\bobbingscript.cs" />
+    <Compile Include="Assets\DeathScript.cs" />
     <Compile Include="Assets\GameScenes\LoadSceneOnClick.cs" />
     <Compile Include="Assets\HeroController.cs" />
     <Compile Include="Assets\JetController.cs" />
