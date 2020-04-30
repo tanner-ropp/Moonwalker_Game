@@ -5,13 +5,46 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/9fc0d4010bbf28b4594072e72b8655ab
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/GameScenes/SampleScene.unity
+    path: Assets/Scenes/StartScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/GameScenes/LevelOne.unity
+    path: Assets/Scenes/LevelThree.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: 
     guid: 4b0e8803edda64faeb0d03cd0f4c7d25
+  - enabled: 1
+    path: Assets/Scenes/LevelOne.unity
+    guid: ef231f8ee06ea4237bfdc4d31ed4eac3
+  - enabled: 1
+    path: Assets/Scenes/LevelTwo.unity
+    guid: 059b3c7a6d643df47b6671fa91edacca
+  - enabled: 1
+    path: Assets/Scenes/LevelThreeComplete.unity
+    guid: b2dc7c914a9784b8499111c5e2c18188
+  - enabled: 1
+    path: Assets/Scenes/LevelThreeFailed.unity
+    guid: 0e98423ebfd0440cb8487655c0e6ea31
+  - enabled: 1
+    path: Assets/Scenes/LevelFourFailed.unity
+    guid: 46c9cf592f3c0489aa5b7b2fce80697f
+  - enabled: 1
+    path: Assets/Scenes/LevelFour.unity
+    guid: 3b88abc2247ae4794ae8bc4c33df4bab
+  - enabled: 1
+    path: Assets/Scenes/LevelOneFailed.unity
+    guid: ea9fb2f8de96f834b9f4909ea74eeddf
+  - enabled: 1
+    path: Assets/Scenes/LevelOneComplete.unity
+    guid: 65c732e09b8b94fb496c9c86c6b60323
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 621ba1bea32824ecd80e1b627af9e35e
+  - enabled: 1
+    path: Assets/Scenes/LevelTwoComplete.unity
+    guid: 21d76a4d2d699418f98c1e90958638e2
+  - enabled: 1
+    path: Assets/Scenes/LevelTwoFailed.unity
+    guid: d89df368403984d0ca2d6d53c21acfff
   m_configObjects: {}

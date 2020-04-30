@@ -7,6 +7,7 @@ public class ThirdPersonCamera : MonoBehaviour
     bool dead = false;
     private const float Y_ANGLE_MIN = 0.0f;
     private const float Y_ANGLE_MAX = 50.0f;
+    public string FailScene;
 
     public Transform lookAt;
     public Transform camTransform;
@@ -70,7 +71,8 @@ public class ThirdPersonCamera : MonoBehaviour
             }
             else
             {
-                //camTransform.position = new Vector3(camTransform.position.x, deathZone.transform.position.y + 100.0f, camTransform.position.z);
+                Cursor.visible = true;
+                Application.LoadLevel(FailScene);
             }
             
         }

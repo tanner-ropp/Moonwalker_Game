@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 
 		private Animator anim;
 		private CharacterController controller;
+    public string CompleteScene;
 
         public AudioSource myAudio;
         public AudioClip[] jumps;
@@ -92,5 +93,14 @@ public class Player : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
         leftJet.GetComponent<ParticleSystem>().Stop();
         rightJet.GetComponent<ParticleSystem>().Stop();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Win")
+        {
+            Cursor.visible = true;
+            Application.LoadLevel(CompleteScene);
+        }
     }
 }
