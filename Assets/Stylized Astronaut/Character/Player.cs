@@ -1,10 +1,16 @@
 using UnityEngine;
 using System.Collections;
+//using System;
 
 public class Player : MonoBehaviour {
 
+
 		private Animator anim;
 		private CharacterController controller;
+    public string CompleteScene;
+
+        public AudioSource myAudio;
+        public AudioClip[] jumps;
 
 		public float speed = 600.0f;
         public float airSpeed = 1.0f;
@@ -16,12 +22,16 @@ public class Player : MonoBehaviour {
 		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
+        Cursor.visible = false;
         
     }
 
 		void Update (){
-           
-            if (Input.GetKey ("w")) {
+        Cursor.lockState = CursorLockMode.Confined;
+            float turn = Input.GetAxis("Horizontal");
+        //Debug.Log(turn);
+
+            if (Input.GetKey ("w") || Input.GetKey("a") || Input.GetKey("d"))  {
                 if (!controller.isGrounded)
                 { 
                     controller.Move(transform.forward * airSpeed * Time.deltaTime);
@@ -40,47 +50,57 @@ public class Player : MonoBehaviour {
 			}
 
 
-           Debug.Log(controller.isGrounded ? "GROUNDED" : "NOT GROUNDED");
+           //Debug.Log(controller.isGrounded ? "GROUNDED" : "NOT GROUNDED");
 
             if (controller.isGrounded){
-				moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
+
+                anim.SetInteger("JumpPar", 0);
+				moveDirection = transform.forward * System.Math.Max(Input.GetAxis("Vertical"),System.Math.Abs(Input.GetAxis("Horizontal"))) * speed;
                 //moveDirection.y = 0.0f;
                 if (Input.GetButtonDown("Fire1"))
                 {
-                  Debug.Log("Fire1 isGrounded");
+                myAudio.PlayOneShot(jumps[Random.Range(0,3)]);
+                anim.SetInteger("JumpPar", 1);
+                  //Debug.Log("Fire1 isGrounded");
                   moveDirection.y = 10f;
                   leftJet.GetComponent<ParticleSystem>().Play();
                   rightJet.GetComponent<ParticleSystem>().Play();
-                    StartCoroutine(StopJets());
+                  StartCoroutine(StopJets());
                 }
 			}
 
-			float turn = Input.GetAxis("Horizontal");
-			transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-        moveDirection.y -= gravity * 0.5f * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+            
+            //float turn = 0.0f;
+            //transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, turn * 90, 0);
+
+            //if (!controller.isGrounded || )
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, transform.eulerAngles.z);
+
+            if (turn > 0.01f || turn < -0.01f)
+            {
+                //moveDirection = transform.forward * speed;
+                anim.SetInteger("AnimationPar", 1);
+            }
+
+            moveDirection.y -= gravity * 0.5f * Time.deltaTime;
+            controller.Move(moveDirection * Time.deltaTime);
 			//dmoveDirection.y -= gravity * 0.5f * Time.deltaTime;
 		}
-
-    private void FixedUpdate()
-    {
-        /*if (!controller.isGrounded)
-        {
-            moveDirection.y -= gravity * 0.5f * Time.deltaTime;
-        } else
-        {
-            moveDirection.y = 0.0f;
-        }*/
-        /*float turn = Input.GetAxis("Horizontal");
-        transform.Rotate(0, turn * turnSpeed * Time.fixedDeltaTime, 0);
-        controller.Move(moveDirection * Time.fixedDeltaTime);
-        moveDirection.y -= gravity * 0.5f * Time.fixedDeltaTime;*/
-    }
 
     IEnumerator StopJets()
     {
         yield return new WaitForSeconds(1.0f);
         leftJet.GetComponent<ParticleSystem>().Stop();
         rightJet.GetComponent<ParticleSystem>().Stop();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Win")
+        {
+            Cursor.visible = true;
+            Application.LoadLevel(CompleteScene);
+        }
     }
 }

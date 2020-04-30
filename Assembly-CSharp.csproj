@@ -63,9 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\bobbingscript.cs" />
+    <Compile Include="Assets\CloseTutorial.cs" />
+    <Compile Include="Assets\DeathScript.cs" />
+    <Compile Include="Assets\GameScenes\LoadSceneOnClick.cs" />
     <Compile Include="Assets\HeroController.cs" />
     <Compile Include="Assets\JetController.cs" />
+    <Compile Include="Assets\palbardiaz\Base Level\BacktoStartScreen.cs" />
+    <Compile Include="Assets\palbardiaz\Base Level\ColliderDetection.cs" />
+    <Compile Include="Assets\palbardiaz\Base Level\StartGameSpace.cs" />
     <Compile Include="Assets\palbardiaz\FloatingRocks.cs" />
+    <Compile Include="Assets\RideRock.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -80,6 +88,8 @@
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\CameraLogicFree.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\SimpleCharacterControlFree.cs" />
+    <Compile Include="Assets\TranslateRock.cs" />
+    <None Include="Assets\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\FreeCelShader.shader" />
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Unity.Timeline.Editor">
